@@ -7,7 +7,7 @@
     	INSERT INTO 
     		member (memberNo, memberName, memberId, memberPassword)
     	VALUES (
-    		(SELECT MAX(memberNo) + 1 FROM member), #{memberName}, #{memberId}, #{memberPassword}
+    		member_seq.NEXTVAL, #{memberName}, #{memberId}, #{memberPassword}
     	)
     </insert>
     
