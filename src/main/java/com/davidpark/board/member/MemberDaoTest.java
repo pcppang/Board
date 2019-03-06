@@ -33,6 +33,7 @@ public class MemberDaoTest {
 		int nAddedUser = memberDao.addMember(newMember);
 		
 		assertThat(nAddedUser, is(1));
+		assertThat(memberDao.selectNMembers(), is(1));
 		
 		Member registeredMember = memberDao.getMemberById(newMember.getMemberId());
 		
@@ -47,7 +48,7 @@ public class MemberDaoTest {
 	 */
 	public void deleteAllMember() {
 		memberDao.deleteAllMember();
-		assertThat(memberDao.getMemberById("admin"), is(nullValue()));
+		assertThat(memberDao.selectNMembers(), is(0));
 	}
 	
 	@Test
