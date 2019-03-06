@@ -41,4 +41,14 @@ public class MemberDao implements MemberRepository {
 		
 		return result;
 	}
+
+	@Override
+	public int selectNMembers() {
+		int result = 0;
+		
+		MemberRepository repository = sqlSession.getMapper(MemberRepository.class);
+		result = repository.selectNMembers();
+		
+		return result;
+	}
 }

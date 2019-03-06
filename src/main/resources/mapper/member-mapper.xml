@@ -28,4 +28,12 @@
     	WHERE
     		1=1
     </delete>
+    
+    <!-- int selectNMembers -->
+    <select id="selectNMembers" resultType="Integer">
+    	SELECT
+    		COUNT(*)
+    	FROM
+    		MEMBER
+    </select>
 </mapper>

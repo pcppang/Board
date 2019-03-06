@@ -26,11 +26,15 @@ public class MemberDaoTest {
 	 * 새로운 유저를 등록한다.
 	 */
 	public void addMember() {
+		memberDao.deleteAllMember();
+		assertThat(memberDao.selectNMembers(), is(0));
+		
 		Member newMember = new Member(0, "관리자", "admin", "admin");
 		
 		int nAddedUser = memberDao.addMember(newMember);
 		
 		assertThat(nAddedUser, is(1));
+		assertThat(memberDao.selectNMembers(), is(1));
 		
 		Member registeredMember = memberDao.getMemberById(newMember.getMemberId());
 		
