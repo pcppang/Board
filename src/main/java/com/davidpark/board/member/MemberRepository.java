@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 public interface MemberRepository {
 	int addMember(Member member);
 	Member getMemberById(String memberId);
+	int deleteAllMember();
 }

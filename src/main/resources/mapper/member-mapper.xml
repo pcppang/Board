@@ -20,4 +20,12 @@
     	WHERE
     		memberId = #{memberId}
     </select>
+    
+    <!-- int deleteAllMember(); -->
+    <delete id="deleteAllMember">
+    	DELETE
+    		member
+    	WHERE
+    		1=1
+    </delete>
 </mapper>

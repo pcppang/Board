@@ -31,4 +31,14 @@ public class MemberDao implements MemberRepository {
 		
 		return result;
 	}
+
+	@Override
+	public int deleteAllMember() {
+		int result = 0;
+		
+		MemberRepository repository = sqlSession.getMapper(MemberRepository.class);
+		result = repository.deleteAllMember();
+		
+		return result;
+	}
 }

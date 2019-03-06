@@ -1,6 +1,7 @@
 package com.davidpark.board.member;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -36,6 +37,15 @@ public class MemberDaoTest {
 		assertThat(newMember.getMemberId(), is(registeredMember.getMemberId()));
 		assertThat(newMember.getMemberName(), is(registeredMember.getMemberName()));
 		assertThat(newMember.getMemberPassword(), is(registeredMember.getMemberPassword()));
+	}
+	
+	@Test
+	/**
+	 * DB에 등록된 모든 사용자를 삭제한다.
+	 */
+	public void deleteAllMember() {
+		memberDao.deleteAllMember();
+		assertThat(memberDao.getMemberById("admin"), is(nullValue()));
 	}
 	
 }
