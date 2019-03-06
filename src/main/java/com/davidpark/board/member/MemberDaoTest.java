@@ -27,14 +27,12 @@ public class MemberDaoTest {
 	 */
 	public void addMember() {
 		memberDao.deleteAllMember();
-		assertThat(memberDao.selectNMembers(), is(0));
 		
 		Member newMember = new Member(0, "관리자", "admin", "admin");
 		
 		int nAddedUser = memberDao.addMember(newMember);
 		
 		assertThat(nAddedUser, is(1));
-		assertThat(memberDao.selectNMembers(), is(1));
 		
 		Member registeredMember = memberDao.getMemberById(newMember.getMemberId());
 		
@@ -52,4 +50,23 @@ public class MemberDaoTest {
 		assertThat(memberDao.getMemberById("admin"), is(nullValue()));
 	}
 	
+	@Test
+	/**
+	 * DB에 등록된 모든 사용자 수를 조회한다.
+	 */
+	public void selectNMembers() {
+		memberDao.deleteAllMember();
+		assertThat(memberDao.selectNMembers(), is(0));
+		
+		Member member1 = new Member(0, "관리자", "admin", "admin");
+		Member member2 = new Member(0, "테스트", "test", "xptmxm");
+		Member member3 = new Member(0, "테스트2", "test2", "xptmxm2");
+		
+		memberDao.addMember(member1);
+		assertThat(memberDao.selectNMembers(), is(1));
+		memberDao.addMember(member2);
+		assertThat(memberDao.selectNMembers(), is(2));
+		memberDao.addMember(member3);
+		assertThat(memberDao.selectNMembers(), is(3));
+	}
 }
