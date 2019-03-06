@@ -5,9 +5,11 @@
 <configuration>
     <typeAliases>
         <!-- <typeAlias type="com.package.name.vo.VO_Obj"	alias="VO_Obj" /> -->
+        <typeAlias type="com.davidpark.board.member.Member" alias="Member"/>
     </typeAliases>
 
     <mappers>
         <!-- <mapper resource="mappers/Mapper.xml" /> -->
+        <mapper resource="mapper/member-mapper.xml"/>
     </mappers>
 </configuration>

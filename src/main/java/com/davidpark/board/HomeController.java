@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.davidpark.board.member.Member;
+import com.davidpark.board.member.MemberDao;
+
 @Controller
 public class HomeController {
 	

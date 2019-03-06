@@ -6,10 +6,10 @@ public class Member {
 	private String memberId;
 	private String memberPassword;
 	
-	private Member() {
+	public Member() {
 	}
 
-	private Member(int memberNo, String memberName, String memberId, String memberPassword) {
+	public Member(int memberNo, String memberName, String memberId, String memberPassword) {
 		this.memberNo = memberNo;
 		this.memberName = memberName;
 		this.memberId = memberId;
